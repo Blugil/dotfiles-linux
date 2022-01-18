@@ -1,0 +1,30 @@
+# ~/ Clean up
+export ZDOTDIR="$HOME/.config/zsh"
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+    bash
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Setting PATH for Python 3.7
+# The original version is saved in .zprofile.pysave
+# PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+
+# Setting PATH for Python 3.8
+# The original version is saved in .zprofile.pysave
+# PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
+export PATH
+
+##
+# Your previous /Users/dagnello/.zprofile file was backed up as /Users/dagnello/.zprofile.macports-saved_2021-08-31_at_00:25:35
+##
+
+# MacPorts Installer addition on 2021-08-31_at_00:25:35: adding an appropriate PATH variable for use with MacPorts.
+# export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
