@@ -7,7 +7,7 @@ local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     -- Enable completion triggered by <c-x><c-o> (overridden by nvim-completion)
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
     
     -- Mappings.
     local opts = { noremap=true, silent=true }
@@ -26,6 +26,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '<space>x', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
     -- Set some keybinds conditional on server capabilities
     if client.resolved_capabilities.document_formatting then
@@ -79,42 +80,6 @@ end)
 -- setup_servers()
 
 
-
-require('compe').setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-
-  source = {
-    omni = true;
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    ultisnips = true;
-    emoji = false;
-    -- vim_dadbod_completion = true;
-  };
-}
-
-
--- require'nvim-treesitter.configs'.setup {
---  highlight = {
---    enable = true,
---  },
---}
-
-
 protocol.CompletionItemKind = {
     '', -- Text
     '', -- Method
@@ -150,6 +115,8 @@ require("lsp-colors").setup({
   Hint = "#10B981"
 })
 
+require('nvim-web-devicons').get_icons()
+
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
 -- require'lspinstall'.post_install_hook = function ()
 --   setup_servers() -- reload installed servers
@@ -162,7 +129,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-require('nvim-web-devicons').get_icons()
 
 -- very small nvim-tree related config
 -- vim.cmd("let g:nvim_tree_ignore = ['.DS_Store', '.git', 'node_modules']")
@@ -183,7 +149,7 @@ require'nvim-tree'.setup {
     auto_open = true,
   },
   diagnostics = {
-    enable = false,
+    enable = true,
     icons = {
       hint = "",
       info = "",
@@ -219,5 +185,30 @@ require'nvim-tree'.setup {
       list = {}
     }
   }
+}
+
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"cpp", "rust", "c", "python"},
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- List of parsers to ignore installing
+  ignore_install = { "javascript" },
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- list of language that will be disabled
+    -- disable = { "c", "rust" },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
 }
 
