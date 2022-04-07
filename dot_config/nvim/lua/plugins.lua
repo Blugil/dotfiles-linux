@@ -16,8 +16,6 @@ return require('packer').startup(function()
         end
     }
 
-    use("saadparwaiz1/cmp-nvim-ultisnips") -- Luasnip completion source
-    --use 'hrsh7th/nvim-compe'
 
     use({
         "hrsh7th/nvim-cmp", -- Completion engine
@@ -33,6 +31,7 @@ return require('packer').startup(function()
     use("hrsh7th/cmp-omni") -- Vim omnicompletion source
     use("hrsh7th/cmp-nvim-lua") -- Nvim Lua API completion
     use("hrsh7th/cmp-calc") -- In-buffer calculations ( 2+2 = 4 )
+    use("quangnguyen30192/cmp-nvim-ultisnips")
 
     use("onsails/lspkind-nvim")
     
