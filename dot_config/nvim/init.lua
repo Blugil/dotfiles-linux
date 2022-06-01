@@ -8,8 +8,14 @@
 
 require('plugins')
 require('plugin_config')
+require('cmp_config')
+require('lualine_config')
+require('nvimtree_config')
+require('barbar_config')
+require('toggleterm_config')
 
 vim.cmd('colorscheme gruvbox')
+
 vim.o.termguicolors=true
 
 vim.o.encoding='UTF-8'

@@ -53,31 +53,11 @@ lsp_installer.on_server_ready(function(server)
     local opts = { 
         on_attach = on_attach,
         update_in_insert = true
+
     }
-
+    
     server:setup(opts)
-
 end)
--- local function setup_servers()
---   require'lspinstall'.setup()
---   local servers = require('lspinstall').installed_servers()
---   for _, server in pairs(servers) do
---     if server == "clangd" then
---         config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
---     end
-
---     if server == "texlab" then
---         config.filetypes = {"tex"};
---	end
-
---     if server == "pyright" then
---         config.filetypes = {"py"};
---     end
---    require'lspconfig'[server].setup{ on_attach = on_attach }
---  end
--- end
-
--- setup_servers()
 
 
 protocol.CompletionItemKind = {
@@ -130,66 +110,9 @@ for type, icon in pairs(signs) do
 end
 
 
--- very small nvim-tree related config
--- vim.cmd("let g:nvim_tree_ignore = ['.DS_Store', '.git', 'node_modules']")
-
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
-require'nvim-tree'.setup {
-  disable_netrw       = true,
-  hijack_netrw        = true,
-  open_on_setup       = false,
-  ignore_ft_on_setup  = {},
-  auto_close          = false,
-  open_on_tab         = false,
-  hijack_cursor       = false,
-  update_cwd          = false,
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    }
-  },
-  update_focused_file = {
-    enable      = false,
-    update_cwd  = false,
-    ignore_list = {}
-  },
-  system_open = {
-    cmd  = nil,
-    args = {}
-  },
-  filters = {
-    dotfiles = false,
-    custom = {
-        '.DS_Store',
-        '.git',
-        'node_modules'
-    }
-  },
-  view = {
-    width = 30,
-    height = 30,
-    hide_root_folder = false,
-    side = 'left',
-    auto_resize = false,
-    mappings = {
-      custom_only = false,
-      list = {}
-    }
-  }
-}
-
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {"cpp", "rust", "c", "python"},
+  ensure_installed = {"cpp", "rust", "c", "python", "go", "lua"},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,

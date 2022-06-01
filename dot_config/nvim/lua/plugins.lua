@@ -2,8 +2,31 @@ return require('packer').startup(function()
 
     use 'wbthomason/packer.nvim'
 
+    -- Themes -- 
+
+    use("morhetz/gruvbox")
+    --use("eddyekofo94/gruvbox-flat.nvim")
+    use({
+	    "catppuccin/nvim",
+	    as = "catppuccin"
+    })
+
+    -- File searching -- 
 	use 'junegunn/fzf.vim'
 
+    use({
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-lua/popup.nvim",
+        },
+    })
+
+    -- LSP --
+    use 'williamboman/nvim-lsp-installer'
+    use 'folke/lsp-colors.nvim'
+    use("onsails/lspkind-nvim")
+    use 'neovim/nvim-lspconfig'
 
     use {'SirVer/ultisnips',
         requires = {{'honza/vim-snippets', rtp = '.'}},
@@ -16,6 +39,7 @@ return require('packer').startup(function()
         end
     }
 
+    -- cmp -- 
 
     use({
         "hrsh7th/nvim-cmp", -- Completion engine
@@ -33,30 +57,34 @@ return require('packer').startup(function()
     use("hrsh7th/cmp-calc") -- In-buffer calculations ( 2+2 = 4 )
     use("quangnguyen30192/cmp-nvim-ultisnips")
 
-    use("onsails/lspkind-nvim")
-    
-    use 'neovim/nvim-lspconfig'
 
-    -- use 'kassio/neoterm'
+    -- Treesitter -- 
 
-    use 'williamboman/nvim-lsp-installer'
-
-    use 'folke/lsp-colors.nvim'
-
-    -- don't like the color highlights compared to vscode
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+    -- Extra functionality -- 
+
+    use {
+        'romgrk/barbar.nvim',
+        requires = {'kyazdani42/nvim-web-devicons'}
+    }
+
+    use { 'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        }
+    }
+
+    use {
+    'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
+    -- Extra -- 
     
     use "lukas-reineke/indent-blankline.nvim"
-
-    use 'kyazdani42/nvim-web-devicons'
-    use 'kyazdani42/nvim-tree.lua'
-
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
-
-    use 'morhetz/gruvbox'
-
-    use 'ap/vim-css-color'
+    use("jiangmiao/auto-pairs")
+    use("ap/vim-css-color")
     
     use {
         'lervag/vimtex',
@@ -69,5 +97,8 @@ return require('packer').startup(function()
         ft = { 'markdown' },
         run = 'cd app && yarn install'  
     }
+
+    -- Useful but not in use -- 
+    use {"akinsho/toggleterm.nvim"}
 
 end)
