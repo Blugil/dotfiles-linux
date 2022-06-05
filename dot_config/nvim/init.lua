@@ -8,12 +8,14 @@
 
 require('plugins')
 require('plugin_config')
+require('alpha_config')
 require('cmp_config')
 require('lualine_config')
 require('nvimtree_config')
 require('barbar_config')
 require('toggleterm_config')
 
+vim.g.catppuccin_flavour = "frappe"
 vim.cmd('colorscheme gruvbox')
 
 vim.o.termguicolors=true

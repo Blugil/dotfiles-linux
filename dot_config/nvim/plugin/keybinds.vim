@@ -27,5 +27,11 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing message extra message when using completion
 set shortmess+=c
 
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :Telescope find_files<CR>
+
+" automatic format on save
+augroup FormatAutogroup
+    autocmd!
+    autocmd BufWritePost * FormatWrite
+augroup END
 

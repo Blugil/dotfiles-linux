@@ -64,21 +64,24 @@ return require('packer').startup(function()
 
     -- Extra functionality -- 
 
+    use { 'mhartington/formatter.nvim' }
+
     use {
         'romgrk/barbar.nvim',
         requires = {'kyazdani42/nvim-web-devicons'}
     }
 
-    use { 'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        }
+    use { 
+        'kyazdani42/nvim-tree.lua',
+        requires = { 'kyazdani42/nvim-web-devicons' }
     }
 
     use {
-    'nvim-lualine/lualine.nvim',
+        'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+
+    use { 'goolord/alpha-nvim' }
 
     -- Extra -- 
     
