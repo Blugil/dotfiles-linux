@@ -8,6 +8,7 @@
 
 require('plugins')
 require('plugin_config')
+
 require('alpha_config')
 require('cmp_config')
 require('lualine_config')

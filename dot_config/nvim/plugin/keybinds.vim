@@ -19,15 +19,16 @@ vnoremap > >gv
 " tab through buffers
 nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprevious<CR>
-nnoremap <c-BS> :bd<CR>
+" relies on barbar 
+nnoremap <c-BS> :BufferDelete<CR>
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
-
 nnoremap <C-p> :Telescope find_files<CR>
+nnoremap <leader>l :Telescope live_grep<CR>
 
 " automatic format on save
 augroup FormatAutogroup
