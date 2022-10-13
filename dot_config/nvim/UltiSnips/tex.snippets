@@ -40,14 +40,45 @@ $5
 \end{$4}
 endsnippet
 
-snippet '([A-Za-z])(\d)' "auto subscript" wrA
-`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
-endsnippet
-
-snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
-`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
-endsnippet
-
 snippet // "Fraction" iA
 \\frac{$1}{$2}$0
+endsnippet
+
+snippet cse355template "CSE 355 template" wA
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{asmath}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+
+\tikzset{
+  ->, % makes the edges directed
+  >=stealth',  
+  node distance=3cm, % specifies the minimum distance between two nodes. Change if necessary.
+  every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node
+  initial text=$start$, % sets the text that appears on the start arrow
+}
+
+\title{$1}
+\author{$2}
+\date{$3}
+
+\begin{$4}
+\maketitle
+
+$5
+
+\end{$4}
+endsnippet
+
+snippet finitestateautomata "Template for FSA"
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		\node[state, initial, accepting] (q0) {$q_0$};
+		\draw 
+	    (q0) edge[loop above] node{0,1} (q1);
+	\end{tikzpicture}
+\end{figure}
 endsnippet

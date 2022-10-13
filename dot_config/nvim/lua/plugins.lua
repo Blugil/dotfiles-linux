@@ -11,6 +11,11 @@ return require('packer').startup(function()
 	    as = "catppuccin"
     })
 
+    use({
+        'srcery-colors/srcery-vim', 
+        as = 'srcery'
+    })
+
     -- File searching -- 
 	use 'junegunn/fzf.vim'
 
@@ -28,16 +33,6 @@ return require('packer').startup(function()
     use("onsails/lspkind-nvim")
     use 'neovim/nvim-lspconfig'
 
-    use {'SirVer/ultisnips',
-        requires = {{'honza/vim-snippets', rtp = '.'}},
-        config = function()      
-            vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'      
-            vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-            vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-            vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-            vim.g.UltiSnipsRemoveSelectModeMappings = 0
-        end
-    }
 
     -- cmp -- 
 
@@ -57,6 +52,16 @@ return require('packer').startup(function()
     use("hrsh7th/cmp-calc") -- In-buffer calculations ( 2+2 = 4 )
     use("quangnguyen30192/cmp-nvim-ultisnips")
 
+    use {'SirVer/ultisnips',
+        requires = {{'honza/vim-snippets', rtp = '.'}},
+        config = function()      
+            vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'      
+            vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+            vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+            vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+            vim.g.UltiSnipsRemoveSelectModeMappings = 0
+        end
+    }
 
     -- Treesitter -- 
 
@@ -81,7 +86,7 @@ return require('packer').startup(function()
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    use { 'goolord/alpha-nvim' }
+    -- use { 'goolord/alpha-nvim' }
 
     -- Extra -- 
     

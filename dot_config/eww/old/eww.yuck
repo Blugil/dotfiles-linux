@@ -1,0 +1,23 @@
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "10px"
+                      :y "0px"
+                      :width "60px"
+                      :height "95%"
+                      :anchor "left center")
+  :stacking "bg"
+  :reserve (struts :distance "70px" :side "left")
+  :windowtype "dock"
+  :wm-ignore false
+  (time))
+
+(defwidget middle [] (time))
+
+(defwidget time []
+  (box :orientation "v"
+       :class "time"
+    hour min sec))
+
+(defpoll hour :interval "1s" "date +%H")
+(defpoll min  :interval "1s" "date +%M")
+(defpoll sec  :interval "1s" "date +%S")

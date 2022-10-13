@@ -1,30 +1,7 @@
--- very small nvim-tree related config
--- vim.cmd("let g:nvim_tree_ignore = ['.DS_Store', '.git', 'node_modules']")
-
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
 
-require'nvim-tree'.setup {
+require('nvim-tree').setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
@@ -32,10 +9,6 @@ require'nvim-tree'.setup {
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false,
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
   diagnostics = {
     enable = true,
     icons = {
@@ -64,13 +37,18 @@ require'nvim-tree'.setup {
   },
   view = {
     width = 30,
-    height = 30,
     hide_root_folder = false,
     side = 'left',
-    auto_resize = true,
     mappings = {
       custom_only = false,
       list = {}
     }
-  }
+  },
+  renderer = {
+    icons = {
+      glyphs = {
+        -- default
+      }
+    }
+  },
 }
