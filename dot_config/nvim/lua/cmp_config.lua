@@ -7,24 +7,6 @@ cmp.setup({
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-e>"] = cmp.mapping.close(),
-    -- first party official solution to ultisnip integration with tab menu selection
-    -- TODO:
-    --  spawn suggestions window with selected = false (check) 
-    --      fixed with "noselect" added to "completeopt"
-    --
-    -- Tab menu scolling becuase I like it (code from official repo under ultisnips)
-    -- ["<Tab>"] = cmp.mapping(
-    --   function(fallback)
-    --     cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-    --   end,
-    --   { "i", "s", "c" --[[ "c" (to enable the mapping in command mode) ]] }
-    -- ),
-    -- ["<S-Tab>"] = cmp.mapping(
-    --   function(fallback)
-    --     cmp_ultisnips_mappings.jump_backwards(fallback)
-    --   end,
-    --   { "i", "s", "c"--[[ "c" (to enable the mapping in command mode) ]] }
-    -- ),
     ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
     ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
     ['<C-n>'] = cmp.mapping({
@@ -62,6 +44,7 @@ cmp.setup({
     
     ["<CR>"] = cmp.mapping({
       i = cmp.mapping.confirm({ select = false }),
+      c = cmp.mapping.confirm({ select = false }),
     }),
     
   },
@@ -99,7 +82,6 @@ cmp.setup({
     { name = "orgmode" },
     { name = "path" },
     { name = "calc" },
-    --{ name = "vim-dadbod-completion" },
   },
   experimental = {
     ghost_text = false,

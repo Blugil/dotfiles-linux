@@ -7,16 +7,15 @@
                                 
 
 require('plugins')
-require('plugin_config')
 
-require('alpha_config')
+-- require('lsp_config')
+require('mason-lsp')
 require('cmp_config')
 require('lualine_config')
 require('nvimtree_config')
 require('barbar_config')
-require('toggleterm_config')
+require('treesitter_config')
 
-vim.g.catppuccin_flavour = "frappe"
 vim.cmd('colorscheme gruvbox')
 
 vim.o.termguicolors=true

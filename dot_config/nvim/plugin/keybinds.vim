@@ -30,9 +30,3 @@ set shortmess+=c
 nnoremap <C-p> :Telescope find_files<CR>
 nnoremap <leader>l :Telescope live_grep<CR>
 
-" automatic format on save
-augroup FormatAutogroup
-    autocmd!
-    autocmd BufWritePost * FormatWrite
-augroup END
-
