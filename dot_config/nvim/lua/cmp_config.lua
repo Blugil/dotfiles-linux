@@ -59,14 +59,14 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-      require("ultisnips").lsp_expand(args.body)
+      require("luasnip").lsp_expand(args.body)
     end,
   },
   formatting = {
     format = lspkind.cmp_format({ with_text = true, maxwidth = 100 }),
   },
   sources = {
-    { name = "ultisnips" },
+    { name = "luasnip" },
     { name = "nvim_lsp" },
     {
       name = "buffer",
