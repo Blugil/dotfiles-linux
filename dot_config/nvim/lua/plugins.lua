@@ -117,6 +117,6 @@ return require('packer').startup(function()
   -- use { 'mhartington/formatter.nvim' }
   -- use { 'goolord/alpha-nvim' }
   -- use { 'eddyekofo94/gruvbox-flat.nvim' }
-  -- use ({ 'srcery-colors/srcery-vim', as = 'srcery' })
+  use ({ 'srcery-colors/srcery-vim', as = 'srcery' })
 
 end)
