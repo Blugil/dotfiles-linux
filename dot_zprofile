@@ -1,5 +1,7 @@
 # ~/ Clean up
 export ZDOTDIR="$HOME/.config/zsh"
+export EDITOR="nvim"
+export TERMINAL="kitty"
 
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
@@ -28,3 +30,8 @@ export PATH
 # MacPorts Installer addition on 2021-08-31_at_00:25:35: adding an appropriate PATH variable for use with MacPorts.
 # export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/dagnello/.local/share/JetBrains/Toolbox/scripts"
+

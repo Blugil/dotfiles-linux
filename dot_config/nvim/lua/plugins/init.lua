@@ -7,11 +7,27 @@ return {
   'ap/vim-css-color',
 	'junegunn/fzf.vim',
 
+  -- based folke
+  {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  },
 
   -- File searching -- 
 
   {
     'nvim-telescope/telescope.nvim',
+    config = function()
+      require('plugins.configs.telescope')
+    end,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-lua/popup.nvim',

@@ -8,11 +8,6 @@
 
 require('plugins')
 
--- require('lsp_config')
--- require('mason-lsp')
--- require('cmp_config')
--- require('nvimtree_config')
-
 vim.cmd('colorscheme gruvbox')
 
 vim.o.termguicolors=true

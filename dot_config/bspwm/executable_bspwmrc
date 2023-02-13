@@ -3,7 +3,8 @@
 # Non bspwm stuff
 # set background
 # feh --bg-scale --no-fehbg ~/Pictures/wallpapers/kogecha/1610795520895.jpg
-feh --bg-fill --no-fehbg ~/Pictures/wallpapers/blood_trees.png
+# feh --bg-fill --no-fehbg ~/Pictures/wallpapers/blood_trees.png
+feh --bg-fill --no-fehbg ~/Pictures/wallpapers/eva.png
 
 # merge Xresources
 xrdb -merge ~/.Xresources

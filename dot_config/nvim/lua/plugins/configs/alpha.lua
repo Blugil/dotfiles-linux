@@ -199,11 +199,11 @@ local buttons = {
 	val = {
 		{ type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
 		{ type = "padding", val = 1 },
-		dashboard.button(
-			"p",
-			" " .. " Find project",
-			":lua require('telescope').extensions.projects.projects()<CR>"
-		),
+		--dashboard.button(
+		--	"p",
+		--	" " .. " Find project",
+		--	":lua require('telescope').extensions.projects.projects()<CR>"
+		--),
 		dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 		dashboard.button("F", "  Find text", ":Telescope live_grep <CR>"),
 		dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),

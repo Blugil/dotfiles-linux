@@ -6,20 +6,24 @@
 super + Return
 	kitty
 
+super + ctrl + Return
+    kitty --name R -1
+
 # program launcher
 super + @space
-    rofi -show drun
+    rofi -show drun -config ~/.config/rofi/test.rasi
     #rofi -modi "run, window, ssh" -show drun
 
 #browser
 super + f
-    firefox
+    librewolf
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
 super + shift + s
-    ~/.config/scripts/screenshot.sh
+    ~/.scripts/screenshot.sh 
     # scrot -s '%Y-%m-%d_$H-%M-%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'
 
 
@@ -28,10 +32,10 @@ super + shift + s
 #
 # Brightness depends on brightnessctl
 XF86MonBrightnessUp
-    brightnessctl s +10%
+    brightnessctl s +5%
 
 XF86MonBrightnessDown
-    brightnessctl s 10%-
+    brightnessctl s 5%-
 
 # Changing the Volume depends on pactl
 
@@ -140,6 +144,18 @@ super + ctrl + shift + space
 # move/resize
 #
 
+super + alt + y
+    bspc node -f @parent --equalize
+
+# increases or decreases the split ratio on the current node
+super + ctrl + alt + {h,l}
+    bspc node @parent --ratio {-,+}0.02
+#     bspc node -r 0.{1-9}
+
+# resets the split ration to default
+super + ctrl + alt + 0
+    bspc node @parent --equalize
+
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
@@ -150,15 +166,15 @@ super + alt + shift + {h,j,k,l}
 
 # move a floating window
 super + {Left,Down,Up,Right}
-bspc node -v {-20 0,0 20,0 -20,20 0}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
 
 #personally added
 
 #fullscreens window
-super + ctrl + Return
-	bspc desktop -l next
+#super + ctrl + Return
+#	bspc desktop -l next
 
 
 super + shift + {d, a}
