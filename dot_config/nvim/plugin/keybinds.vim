@@ -27,6 +27,6 @@ set completeopt=menuone,noinsert,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
-nnoremap <C-p> :Telescope find_files<CR>
+nnoremap <leader>f :Telescope find_files<CR>
 nnoremap <leader>l :Telescope live_grep<CR>
 

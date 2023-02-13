@@ -9,12 +9,9 @@
 require('plugins')
 
 -- require('lsp_config')
-require('mason-lsp')
-require('cmp_config')
-require('lualine_config')
-require('nvimtree_config')
-require('barbar_config')
-require('treesitter_config')
+-- require('mason-lsp')
+-- require('cmp_config')
+-- require('nvimtree_config')
 
 vim.cmd('colorscheme gruvbox')
 

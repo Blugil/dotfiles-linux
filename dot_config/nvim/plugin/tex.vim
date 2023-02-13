@@ -9,6 +9,5 @@ let g:livepreview_previewer = 'zathura'
 
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_view_general_options = '-r @line @pdf @tex'
-let g:vimtex_view_general_options_latexmk = '-r 1'
 
 autocmd FileType tex nmap <Leader>t :w<CR><bar><Leader>ll

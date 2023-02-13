@@ -32,7 +32,7 @@ require('nvim-tree').setup {
     custom = {
         '.DS_Store',
         'node_modules',
-        '.git/'
+        '.git'
     }
   },
   view = {

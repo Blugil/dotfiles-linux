@@ -78,7 +78,7 @@ cmp.setup({
     },
     { name = "nvim_lua" },
     { name = "crates" },
-    { name = "omni" },
+    -- { name = "omni" },
     { name = "orgmode" },
     { name = "path" },
     { name = "calc" },
@@ -87,6 +87,7 @@ cmp.setup({
     ghost_text = false,
   },
 })
+
 
 cmp.setup.cmdline(":", {
   sources = {

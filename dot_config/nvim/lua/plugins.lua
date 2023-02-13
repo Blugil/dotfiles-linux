@@ -1,120 +1,15 @@
-return require('packer').startup(function()
-
-  use 'wbthomason/packer.nvim'
-
-  -- Themes -- 
-
-  use("morhetz/gruvbox")
-  use({
-	  "catppuccin/nvim",
-	  as = "catppuccin"
+local lazypath = vim.fn.stdpath('data') .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
   })
+end
+vim.opt.rtp:prepend(lazypath)
 
 
-  -- File searching -- 
-	use 'junegunn/fzf.vim'
-
-  use({
-      "nvim-telescope/telescope.nvim",
-      requires = {
-          "nvim-lua/plenary.nvim",
-          "nvim-lua/popup.nvim",
-      },
-  })
-
-  -- LSP --
-  use({
-    'williamboman/mason.nvim',
-    config = function()
-      require('mason').setup()
-    end,
-  })
-
-  use({
-    'williamboman/mason-lspconfig.nvim',
-    config = function()
-      require('mason-lsp')
-    end,
-  })
-
-  use 'folke/lsp-colors.nvim'
-  use("onsails/lspkind-nvim")
-  use 'neovim/nvim-lspconfig'
-
-
-  -- cmp -- 
-
-  use({
-      "hrsh7th/nvim-cmp", -- Completion engine
-      config = function()
-          require("cmp_config")
-      end,
-  })
-
-  use('saadparwaiz1/cmp_luasnip') -- Luasnip completion source
-  use("hrsh7th/cmp-nvim-lsp") -- LSP completion source
-  use("hrsh7th/cmp-cmdline") -- Command line completion source
-  use("hrsh7th/cmp-buffer") -- Buffer completion source
-  use("hrsh7th/cmp-path") -- File path completion source
-  use("hrsh7th/cmp-omni") -- Vim omnicompletion source
-  use("hrsh7th/cmp-nvim-lua") -- Nvim Lua API completion
-  use("hrsh7th/cmp-calc") -- In-buffer calculations ( 2+2 = 4 )
-  -- use("quangnguyen30192/cmp-nvim-ultisnips")
-
-
-  use({
-    'L3MON4D3/LuaSnip', -- Snippet plugin
-    config = function()
-      require('luasnip_config')
-    end,
-  })
-
-  -- Treesitter -- 
-
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-  -- Extra functionality -- 
-
-
-  use {
-      'romgrk/barbar.nvim',
-      requires = {'kyazdani42/nvim-web-devicons'}
-  }
-
-  use { 
-      'kyazdani42/nvim-tree.lua',
-      requires = { 'kyazdani42/nvim-web-devicons' }
-  }
-
-  use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-
-
-  -- Extra -- 
-  
-  use "lukas-reineke/indent-blankline.nvim"
-  use("jiangmiao/auto-pairs")
-  use("ap/vim-css-color")
-  
-  use {
-      'lervag/vimtex',
-      ft = {'tex'}
-  }
-
-  use 'tpope/vim-markdown'
-  use { 
-      'iamcco/markdown-preview.nvim',
-      ft = { 'markdown' },
-      run = 'cd app && yarn install'  
-  }
-
-  -- Useful but not in use -- 
-  -- use { 'akinsho/toggleterm.nvim' }
-  -- use { 'mhartington/formatter.nvim' }
-  -- use { 'goolord/alpha-nvim' }
-  -- use { 'eddyekofo94/gruvbox-flat.nvim' }
-  use ({ 'srcery-colors/srcery-vim', as = 'srcery' })
-
-end)
+return require('lazy').setup('plugins')
