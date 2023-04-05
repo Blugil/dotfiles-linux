@@ -3,9 +3,17 @@ return {
   -- 'wbthomason/packer.nvim',
 
   'ellisonleao/gruvbox.nvim',
+  {
+    'rebelot/kanagawa.nvim',
+    config = function()
+      require('plugins.configs.kanagawa')
+    end,
+  },
   'lewis6991/impatient.nvim',
   'ap/vim-css-color',
 	'junegunn/fzf.vim',
+
+  "arturgoms/moonbow.nvim",
 
   -- based folke
   {
@@ -95,13 +103,13 @@ return {
   -- Extra functionality -- 
 
 
-  {
-    'romgrk/barbar.nvim',
-    config = function()
-      require('plugins.configs.barbar')
-    end,
-    dependencies = {'kyazdani42/nvim-web-devicons'},
-  },
+  -- {
+  --   'romgrk/barbar.nvim',
+  --   config = function()
+  --     require('plugins.configs.barbar')
+  --   end,
+  --   dependencies = {'kyazdani42/nvim-web-devicons'},
+  -- },
 
   { 
     'kyazdani42/nvim-tree.lua',
@@ -118,6 +126,7 @@ return {
     end,
     dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
   },
+
   {
     'goolord/alpha-nvim',
     config = function ()

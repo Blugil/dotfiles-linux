@@ -7,7 +7,9 @@
                                 
 
 require('plugins')
+require('remap')
 
+-- vim.cmd('colorscheme kanagawa')
 vim.cmd('colorscheme gruvbox')
 
 vim.o.termguicolors=true
